@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title th:remove="all">Password Reset Request</title>
+      <style type="text/css">
+         a.button {
+         background-color: #5cb85c;
+         border-color: #4cae4c;
+         border-radius: 5px;
+         color: white;
+         padding: 1em 1.5em;
+         text-decoration: none;
+         font-weight: bold;
+         }
+         a.button:hover {
+         background-color: #449d44;
+         border-color: #398439;
+         cursor: pointer;
+         }
+         a.button:active {
+         box-shadow: none;
+         top: 5px;
+         }
+         #linkDiv {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 50px;
+         margin-bottom: 10%;
+         }
+         #bodyDiv {
+         display: block;
+         width: 60%;
+         border: 1px solid #f2f2f2;
+         padding: 20px;
+         background-color: #f2f2f2;
+         border-radius: 10px;
+         margin: 0 auto;
+         font-family: arial,sans-serif;
+         }
+         .pjustify {
+         text-align: justify;
+         padding: 5px 0px;
+         }
+         #pdisclaimer {
+         text-align: justify;
+         font-size: 8pt;
+         color: grey;
+         }
+         body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-family: arial;
+         font-size: 10pt;
+         }
+         .logo-cont {
+         text-align: center;
+         margin-bottom: 5%;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="bodyDiv">
+         <div class="logo-cont">
+           <a href="http://www.friendshiptravel.com"><img  src="https://www.friendshiptravel.com/images/FTlogot.png" /></a>
+         </div>
+         <div class="content-div">
+            <h2 style="color: #0c2230; font-style: italic; font-family: georgia,serif; font-size: 22px; font-weight: 400; margin: 0 0 30px 0;">Hi <span th:text="${name} ? ${name} : ${code}">Habib</span>,</h2>
+            <p class="pjustify">
+               <span th:text="'An account has been created with user code ' + ${code} + ' to access e-office services. Please click on the button below to set a password. The link will be expired in next ' + ${expiretime} + ' minutes.'"></span>
+            </p>
+            <p class="pjustify">
+            <div id="linkDiv"><a class="button" style="color: white; margin: auto;" th:href="${resetlink}">Set password</a></div>
+            </p>
+            <p class="pjustify">If you didn't request any new account, please let us know this incident.</p>
+         </div>
+         <div class="footer-div">
+            <p style="color: #0c2230; font-style: italic; font-family: georgia,serif; font-size: 16px; font-weight: 400; ">
+               Kind regards,
+            </p>
+            <p>
+               Administrator from Friendship Travel
+            </p>
+         </div>
+      </div>
+   </body>
+</html>
